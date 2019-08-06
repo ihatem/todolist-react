@@ -1,0 +1,98 @@
+// Units
+$u: 30px
+
+// Google Material Colors
+$bluegrey100: #CFD8DC
+$bluegrey300: #90A4AE
+$bluegrey500: #607D8B
+$bluegrey900: #263238
+$blueA400: #3FC1C9
+
+// Timing Functions
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22)
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1)
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1)
+$easeIn: $easeInQuart
+$easeOut: $easeOutQuart
+$easeInOut: $easeInOutQuart
+
+// Important
+.majesticCheckbox
+  $boxSize: $u * 1.25
+  $checkThickness: 4px
+
+  cursor: pointer
+  display: flex
+  min-height: $boxSize
+  align-items: center
+  line-height: 3
+  user-select: none
+  color: $bluegrey500
+  font-weight: normal
+  position: absolute 
+  right: 30px
+  top: 50%
+  transform: translateY(-50%)
+
+  input
+    display: none
+
+  span
+    position: relative
+    display: flex
+    width: $boxSize
+    height: $boxSize
+    box-sizing: border-box
+    overflow: hidden
+    border-radius: 5px
+    background: $gray
+    transition: background .3s ease-in-out
+    &:hover 
+      background: $turq
+
+    i
+      position: relative
+      width: $boxSize
+      height: $boxSize
+      margin-left: $boxSize / 10
+      transform: rotate(-45deg) translateX(0%) translateY(0%) scale(0.8)
+      transform-origin: center left
+
+      &:before,
+      &:after
+        content: ""
+        position: absolute
+        background-color: white
+        border-radius: $boxSize
+
+      &:before
+        height: 0%
+        top: 50%
+        left: 0
+        width: $checkThickness
+
+      &:after
+        width: 0%
+        bottom: 0
+        left: 0
+        height: $checkThickness
+
+  // Box
+
+  // If selected
+  input:checked ~ span
+    border: none
+    background-color: $blueA400
+
+    i:before
+      height: 50%
+      transition: height 300ms $easeIn
+
+    i:after
+      width: 100%
+      transition: width 300ms 300ms $easeOut
+
+  input:checked ~ b
+    color: $bluegrey900
+
+// Majestic Checkbox

@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap")
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap')
+
+$blue: #364F6B
+$turq: #3FC1C9
+$pink: #FC5185
+$black: #262626
+$white: #F5F5F5
+$gray: #e5e5e5
+
+@import './utils.sass'
+
+body
+	background: $blue
+
+	.App
+		display: flex
+		flex-direction: column
+		align-items: center
+		max-width: 60%
+		margin: 100px auto 0 auto
+		
+
+		.routesWrap
+			position: relative
+			width: 100% 
+			.routes 
+				width: 100%
+
+		.addTodo 
+			width: 100%
+			position: relative
+			.addTodoInput
+				max-height: 100px
+				width: 100%
+				padding: 25px 30px
+				box-sizing: border-box
+				font-size: 2em
+				color: $black
+				caret-color: $turq
+				border: 0
+				&::placeholder 
+					color: darken($gray, 15%)
+				&:focus 
+					outline: none
+			.addTodoBtn
+				border: 0
+				cursor: pointer
+				display: flex
+				align-items: center
+				user-select: none
+				color: $white
+				background: $turq
+				font-family: "Open Sans"
+				font-weight: 600
+				position: absolute
+				right: 30px
+				width: 37.5px 
+				height: 37.5px
+				font-size: 2em
+				top: 50%
+				transform: translateY(-50%)
+				transition: background .3s ease-in-out
+				border-radius: 5px
+				&:hover 
+					background: scale-color($turq, $alpha: -10%)
+				span 
+					width: 100%
+					position: absolute
+					height: 100%
+					left: 0
+					top: 0
+					display: flex
+					justify-content: center
+					align-items: center
+
+
+
+
+		.header
+			font-family: "Roboto"
+			margin-bottom: 1em
+
+			.headTitle
+				color: scale-color($white, $alpha: -70%)
+				text-transform: uppercase
+				font-weight: 400
+				text-align: center
+			
+			.switcher 
+				display: flex 
+				position: relative
+				overflow: hidden
+				border-radius: 4em
+				-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)
+
+				.switchBgActive
+					position: absolute 
+					top: 0
+					left: 0 
+					height: 100%
+					width: 200%
+					z-index: -1
+					background: linear-gradient(to right, $pink 0%,$pink 50%,$white 50%,$white 100%)
+				.switchBg
+					position: absolute 
+					top: 0
+					left: 0 
+					height: 100%
+					width: 100% 
+					background: $white
+					z-index: -2
+				
+				
+
+				.switch 
+					text-decoration: none 
+					//background: $white
+					color: $pink
+					padding: .5em 1em
+					text-transform: uppercase
+					font-weight: 600
+					min-width: 70px
+					display: block
+					text-align: center
+					transition: color .3s ease-in-out
+
+				.selected 
+					color: $white
+
+		.todos 
+			width: 100%
+			.todo
+				max-height: 100px
+				background: $white
+				padding: 25px 30px
+				position: relative
+				margin-top: 1em
+				border-radius: .3em
+				transition: all .3s ease-in-out
+				// &:hover 
+				// 	box-shadow: 4px 17px 20px 0px scale-color(darken($blue, 15%), $alpha: -90%)
+				// 	transform: translateY(-2px)
+
+				p 
+					margin: 0
+					font-family: "Open Sans" 
+				.todoText 
+					font-size: 2em
+				.todoTime 
+					color: darken($gray, 15%)
+
+
