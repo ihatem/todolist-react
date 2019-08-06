@@ -1,4 +1,4 @@
-#TODO
+# TODO
 
 - [ ] check if input isn't empty
 - [ ] redirect to undone when add new todo
