@@ -1,4 +1,6 @@
-# TODO
+# :TODO:
+
+On progress...
 
 - [ ] check if input isn't empty
 - [ ] redirect to undone when add new todo
@@ -9,3 +11,4 @@
 - [ ] localStorage
 - [ ] delay add ✅ when check
 - [ ] add notifications
+- [ ] edit todos and add modifiedAt
