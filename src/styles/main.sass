@@ -10,6 +10,14 @@ $gray: #e5e5e5
 
 @import './utils.sass'
 
+#ct-container
+	font-family: "Open Sans"
+	.ct-toast
+		padding: 0 15px
+		.successIcon
+			color: $turq
+
+
 body
 	background: $blue
 
@@ -19,6 +27,11 @@ body
 		align-items: center
 		max-width: 60%
 		margin: 100px auto 0 auto
+		transition: max-width .3s ease-in-out
+		@media (max-width: 1075px)
+			max-width: 75%
+		@media (max-width: 480px)
+			max-width: 92%
 		
 
 		.routesWrap
@@ -79,13 +92,14 @@ body
 
 		.header
 			font-family: "Roboto"
-			margin-bottom: 1em
+			margin-bottom: 3em
 
 			.headTitle
 				color: scale-color($white, $alpha: -70%)
 				text-transform: uppercase
 				font-weight: 400
 				text-align: center
+				margin: 0 0 .5em 0
 			
 			.switcher 
 				display: flex 
@@ -130,24 +144,61 @@ body
 
 		.todos 
 			width: 100%
+			.noTodos 
+				margin-top: 4em
+				font-family: "Roboto"
+				text-align: center 
+				color: lighten($blue, 30%)
 			.todo
-				max-height: 100px
+				display: flex 
+				justify-content: space-between
 				background: $white
 				padding: 25px 30px
 				position: relative
 				margin-top: 1em
 				border-radius: .3em
 				transition: all .3s ease-in-out
-				// &:hover 
-				// 	box-shadow: 4px 17px 20px 0px scale-color(darken($blue, 15%), $alpha: -90%)
-				// 	transform: translateY(-2px)
-
+				padding-bottom: calc(30px - .5em)
 				p 
 					margin: 0
 					font-family: "Open Sans" 
-				.todoText 
-					font-size: 2em
-				.todoTime 
-					color: darken($gray, 15%)
+
+				.todoContent 
+					display: inline-grid
+					.todoText 
+						font-size: 2em
+						overflow: hidden
+						text-overflow: ellipsis
+						white-space: nowrap
+						border: none 
+						background: transparent 
+						margin-bottom: .2em
+						width: 100%
+					.todoTime 
+						color: darken($gray, 15%)
+						display: flex 
+						flex-wrap: wrap 
+						.timeWrap 
+							margin: 0 .5em .5em 0
+							background: $gray
+							border-radius: .4em 
+							padding: .4em .8em
+							box-sizing: border-box
+							font-size: .9em
+							@media (max-width: 480px)
+								font-size: .8em
+							span
+								margin-right: .5em
+
+				.buttons 
+					display: flex 
+					align-items: center
+
+					.deleteIcon 
+						color: $gray
+						cursor: pointer
+						transition: color .3s ease-in-out
+						&:hover 
+							color: $pink
 
 

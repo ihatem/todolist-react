@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useTransition, animated } from "react-spring";
 import "./styles/main.sass";
 import { TodoProvider } from "./todosContext";
 
@@ -14,8 +13,7 @@ const App = () => {
       <TodoProvider>
         <Router>
           <Route component={Nav} />
-          {/* <Nav /> */}
-          <AddTodoItem />
+          <Route component={AddTodoItem} />
           <div className="routesWrap">
             <div className="routes">
               <Switch>

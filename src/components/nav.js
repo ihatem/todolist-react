@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
 const Nav = ({ location }) => {
@@ -9,7 +9,7 @@ const Nav = ({ location }) => {
 
   useEffect(() => {
     setDone(location.pathname.replace("/", "") === "done");
-  });
+  }, [location]);
 
   const props = useSpring({
     transform: `translateX(${done ? "25%" : "-25%"})`

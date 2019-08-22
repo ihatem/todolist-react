@@ -1,22 +1,48 @@
 import React, { useState, useContext } from "react";
 import { TodoContext } from "../todosContext";
-import nextId from "react-id-generator";
+import cogoToast from "cogo-toast";
 
-const AddTodoItem = () => {
+const AddTodoItem = ({ location, history }) => {
   const [value, setValue] = useState("");
   const [state, setState] = useContext(TodoContext);
 
   const updateTodos = e => {
     e.preventDefault();
-    const newItem = {
-      id: nextId(),
-      body: value,
-      createdAt: new Date().toISOString(),
-      completed: false,
-      completedAt: null
-    };
-    setState([...state, newItem]);
-    setValue("");
+    if (!value.replace(/\s+/, "").length) {
+      cogoToast.error(`Input field must not be empty!`, {
+        renderIcon: () => (
+          <span role="img" aria-label="Prohibited">
+            🚫
+          </span>
+        ),
+        position: "bottom-center",
+        onClick: hide => {
+          hide();
+        }
+      });
+    } else {
+      const newItem = {
+        id: new Date().toISOString(),
+        body: value.trim(),
+        createdAt: new Date().toISOString(),
+        completed: false,
+        completedAt: null
+      };
+      setState([...state, newItem]);
+      cogoToast.success(`Todo succefully added!`, {
+        renderIcon: () => (
+          <span role="img" aria-label="Tick">
+            ✅
+          </span>
+        ),
+        position: "bottom-center",
+        onClick: hide => {
+          hide();
+        }
+      });
+      setValue("");
+      location.pathname.replace("/", "") === "done" && history.push("/");
+    }
   };
 
   return (
