@@ -1,4 +1,5 @@
 # :TODO:
+<<<<<<< HEAD
 
 On progress...
 
@@ -14,3 +15,18 @@ On progress...
 - [x] edit todos and add modifiedAt
 - [x] delete todo
 - [x] responsive
+=======
+
+On progress...
+
+- [ ] check if input isn't empty
+- [ ] redirect to undone when add new todo
+- [ ] animate todo card
+- [ ] delay when done
+- [ ] delay when undone
+- [ ] sort by recent
+- [ ] localStorage
+- [ ] delay add ✅ when check
+- [ ] add notifications
+- [ ] edit todos and add modifiedAt
+>>>>>>> 4570599a9cb4c0452bafe948e32a5f320bdd8006
