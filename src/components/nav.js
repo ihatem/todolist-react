@@ -22,10 +22,19 @@ const Nav = ({ location }) => {
         <animated.span style={props} className="switchBgActive" />
         <span className="switchBg" />
 
-        <NavLink exact to="/" className="switch" activeClassName="selected">
+        <NavLink
+          exact
+          to={`${process.env.PUBLIC_URL}/`}
+          className="switch"
+          activeClassName="selected"
+        >
           Undone
         </NavLink>
-        <NavLink to="/done" className="switch" activeClassName="selected">
+        <NavLink
+          to={`${process.env.PUBLIC_URL}/done`}
+          className="switch"
+          activeClassName="selected"
+        >
           Done
         </NavLink>
       </div>

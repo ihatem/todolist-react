@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <TodoProvider>
-        <Router>
+        <Router basename={"/todolist-react"}>
           <Route component={Nav} />
           <Route component={AddTodoItem} />
           <div className="routesWrap">
@@ -19,14 +19,14 @@ const App = () => {
               <Switch>
                 <Route
                   exact
-                  path="/"
+                  path={`${process.env.PUBLIC_URL}/`}
                   component={props => (
                     <TodosPage {...props} pageName="undone" />
                   )}
                 />
                 <Route
                   exact
-                  path="/done"
+                  path={`${process.env.PUBLIC_URL}/done`}
                   component={props => <TodosPage {...props} pageName="done" />}
                 />
               </Switch>
