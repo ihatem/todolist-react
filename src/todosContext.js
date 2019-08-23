@@ -40,7 +40,6 @@ export const TodoContext = createContext();
 
 export const TodoProvider = props => {
   const [value, setValue] = useLocalStorage("key", initalTodos);
-  console.log(value);
 
   return (
     <TodoContext.Provider value={[value, setValue]}>

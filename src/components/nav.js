@@ -4,11 +4,14 @@ import { animated, useSpring } from "react-spring";
 
 const Nav = ({ location }) => {
   const [done, setDone] = useState(
-    location.pathname.replace("/", "") === "done"
+    location.pathname.split("/")[location.pathname.split("/").length - 1]
   );
 
   useEffect(() => {
-    setDone(location.pathname.replace("/", "") === "done");
+    setDone(
+      location.pathname.split("/")[location.pathname.split("/").length - 1] ===
+        "done"
+    );
   }, [location]);
 
   const props = useSpring({
@@ -22,19 +25,10 @@ const Nav = ({ location }) => {
         <animated.span style={props} className="switchBgActive" />
         <span className="switchBg" />
 
-        <NavLink
-          exact
-          to={`${process.env.PUBLIC_URL}/`}
-          className="switch"
-          activeClassName="selected"
-        >
+        <NavLink exact to="/" className="switch" activeClassName="selected">
           Undone
         </NavLink>
-        <NavLink
-          to={`${process.env.PUBLIC_URL}/done`}
-          className="switch"
-          activeClassName="selected"
-        >
+        <NavLink to="/done" className="switch" activeClassName="selected">
           Done
         </NavLink>
       </div>

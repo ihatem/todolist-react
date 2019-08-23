@@ -41,7 +41,8 @@ const AddTodoItem = ({ location, history }) => {
         }
       });
       setValue("");
-      location.pathname.replace("/", "") === "done" && history.push("/");
+      location.pathname.split("/")[location.pathname.split("/").length - 1] ===
+        "done" && history.push("/");
     }
   };
 
