@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "homepage": "https://ihatem.github.io/todolist-react",
   "private": false,
-  "licence": "MIT",
+  "licenses": [{
+    "name": "MIT",
+    "url": "https://github.com/ihatem/todolist-react/blob/master/LICENSE"
+  }],
   "dependencies": {
     "@material-ui/core": "^4.3.3",
     "@material-ui/icons": "^4.2.1",
